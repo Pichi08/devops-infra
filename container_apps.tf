@@ -228,8 +228,8 @@ resource "azurerm_container_app" "users_api" {
   }
 
   ingress {
-    external_enabled = false # Internal only
-    target_port      = 8083  # Port from users-api Dockerfile
+    external_enabled = true
+    target_port      = 80 # Changed back to 80 to match the actual listening port shown in logs
     transport        = "http"
     allow_insecure_connections = true
     traffic_weight {
